@@ -1,0 +1,17 @@
+<!-- polls/templates/polls/results.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados de: {{ question.question_text }}</title>
+</head>
+<body>
+    <h1>Resultados de: {{ question.question_text }}</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} - {{ choice.votes }} votos</li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'polls:index' %}">Voltar para a lista de perguntas</a></p>
+</body>
+</html>
